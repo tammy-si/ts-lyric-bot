@@ -10,8 +10,8 @@ def get_lyric():
     GENIUS_ACCESS_TOKEN = os.environ.get("GENIUS_ACCESS_TOKEN")
 
     genius = Genius(GENIUS_ACCESS_TOKEN)
-    album = genius.search_album('Folklore Deluxe', "Taylor Swift")
-    random_track = random.choice(album.tracks[:-1])
+    album = genius.search_album('Midnights 3am Edition', "Taylor Swift")
+    random_track = random.choice(album.tracks)
     track = random_track.to_dict()
     lyrics = track['song']['lyrics']
     # first we clean the lyrics and turn into a list so we can get a random lyric
