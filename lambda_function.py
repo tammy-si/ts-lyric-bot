@@ -20,8 +20,10 @@ def get_lyric():
     # some problems wiht ads at the last lines so we have to split to get lyrics
     cleaned[-1] = cleaned[-1].split("See Taylor Swift")[0]
     cleaned[-1] = re.split('(\d+)', cleaned[-1])[0]
-    # now after cleaning we get a random lyric
-    return random.choice(cleaned)
+    # now after cleaning we get a random lyric, by getting a random index (except for the last line b/c possible index error)
+    index = random.randrange(0, len(cleaned) - 1)
+    # return the line and another line after it
+    return cleaned[index] + '\n' + cleaned[index + 1]
     
 
 
